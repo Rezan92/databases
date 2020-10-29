@@ -13,7 +13,7 @@ queryDatabase("DROP DATABASE IF EXISTS dbhyf");
 queryDatabase("CREATE DATABASE dbhyf");
 queryDatabase("USE dbhyf");
 queryDatabase(`CREATE TABLE Authors(
-    author_no int PRIMARY KEY, 
+    author_no int AUTO_INCREMENT PRIMARY KEY, 
     author_name VARCHAR(50), 
     university VARCHAR(50), 
     date_of_birth DATE, 

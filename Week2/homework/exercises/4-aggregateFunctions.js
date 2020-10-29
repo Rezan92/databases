@@ -22,7 +22,7 @@ queryDatabase(`
   ON au.author_no = ar.author_no
   INNER JOIN Research_Papers re
   ON ar.paper_id = re.paper_id
-  GROUP BY re.paper_title
+  GROUP BY re.paper_id
   ORDER BY COUNT(au.author_name) DESC
 `);
 
@@ -67,6 +67,6 @@ db.end();
 function queryDatabase(command) {
   db.query(command, (error, results) => {
     if (error) throw error;
-    console.log(results);
+    console.table(results);
   });
 }

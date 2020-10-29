@@ -34,7 +34,8 @@ queryDatabase(`CREATE TABLE IF NOT EXISTS Author_Research (
 
   // Insert 15 rows to the Authors table
   for(let i = 1 ; i <= 15 ; i++){
-      queryDatabase(`INSERT INTO Authors VALUES(${i}, "Author-${i}", "university-${createRandomNum(1,4)}","1980-05-05", ${i}, "${gender[createRandomNum(0,1)]}",${i})`)
+      queryDatabase(`INSERT INTO Authors ( author_name, university, date_of_birth, h_index, gender)
+      VALUES( "Author-${i}", "university-${createRandomNum(1,4)}","1980-05-05", ${i}, "${gender[createRandomNum(0,1)]}")`)
   }
 
   // Insert 30 rows to the Research_Papers table
