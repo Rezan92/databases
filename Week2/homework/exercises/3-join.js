@@ -21,7 +21,7 @@ queryDatabase(`
   a1.author_name AS Author,
   a2.author_name AS Collaborator 
   FROM Authors a1
-  INNER JOIN Authors a2
+  LEFT JOIN Authors a2
   ON a1.author_no = a2.Collaborator`
   );
 

@@ -28,12 +28,10 @@ queryDatabase(`
 
 //Sum of the research papers published by all female authors.
 queryDatabase(`
-  SELECT count(*) AS    Papers_published_by_all_female
+  SELECT count(distinct ar.paper_id) Papers_published_by_all_female
   FROM Authors au 
   INNER JOIN Author_Research ar
   ON au.author_no = ar.author_no
-  INNER JOIN Research_Papers re
-  ON ar.paper_id = re.paper_id
   WHERE au.gender = 'f'
 `);
 
@@ -46,11 +44,9 @@ queryDatabase(`
 
 //Sum of the research papers of the authors per university.
 queryDatabase(`
-  SELECT au.university AS University, COUNT(re.paper_title) AS total_research_papers FROM Authors au 
+  SELECT au.university AS University, COUNT(distinct ar.paper_id) AS total_research_papers FROM Authors au 
   INNER JOIN Author_Research ar
   ON au.author_no = ar.author_no
-  INNER JOIN Research_Papers re 
-  ON re.paper_id = ar.paper_id
   group by university
   ORDER BY total_research_papers DESC
 `);
